@@ -1,0 +1,11 @@
+.row {
+  height: 60px;
+  display: block;
+}
+
+.field {
+  width: 60px;
+  height: 60px;
+  border: solid 1px grey;
+  display: inline-block;
+}
