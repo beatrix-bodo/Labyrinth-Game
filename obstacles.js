@@ -1,3 +1,4 @@
+
 'use strict';
 
 var labyrinth = document.querySelector('#labyrinth');
@@ -32,9 +33,9 @@ currentField.style.backgroundColor = 'red';
 var goal = allFields[199];
 goal.style.backgroundColor = 'yellow';
 
-// for (var i = 0; i < obstacles.length; i++) {
-//   allFields[obstacles[i]].style.backgroundColor = 'black';
-// };
+for (var i = 0; i < obstacles.length; i++) {
+  allFields[obstacles[i]].style.backgroundColor = 'black';
+};
 
 window.addEventListener('keydown',function(e) {
   var key = e.key;
