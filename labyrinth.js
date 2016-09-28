@@ -1,22 +1,28 @@
-"use strict";
+'use strict';
 
-var labyrinth = document.getElementById("labyrinth");
+var labyrinth = document.querySelector('#labyrinth');
+
 var row = 10, col = 20;
-
 var html = '';
 for(var i = 0; i < row; i++) {
-  html += ' <div class="row">';
+  html += '<div class="row">';
   for(var j = 0; j < col; j++) {
     html += '<div class="field"></div>';
   }
   html += '</div>';
 }
-labyrinth.innerHTML = html;
 
+labyrinth.innerHTML = html;
 var position = 0;
-var labyrinth = document.querySelector('#labyrinth');
+var oldPosition = position;
+var visited = [];
 var currentField = document.querySelector('.field');
-currentField.style.backgroundColor = "red";
+var allFields = document.querySelectorAll('.field');
+// set initial field red
+currentField.style.backgroundColor = 'red';
+// set goal yellow
+var goal = allFields[199];
+goal.style.backgroundColor = 'yellow';
 
 window.addEventListener('keydown',function(e) {
   var key = e.key;
@@ -24,23 +30,33 @@ window.addEventListener('keydown',function(e) {
 });
 
 function changeCurrentActiveField(current, key) {
-  var allFields = document.querySelectorAll('.field');
+  // when they move to a position that is in visited, we need to undo
+  oldPosition = position;
   switch (key) {
-    case "ArrowLeft":
+    case 'ArrowLeft':
       position--;
       break;
-    case "ArrowDown":
+    case 'ArrowDown':
       position += col;
       break;
-    case "ArrowUp":
+    case 'ArrowUp':
       position -= col;
       break;
-    case "ArrowRight":
+    case 'ArrowRight':
       position++;
     break;
   };
+  current.style.backgroundColor = 'blue';
+  if (visited.indexOf(position) == -1) {
+    // set current, it hasnt been visited
+    current = allFields[position];
+    current.style.backgroundColor = 'red';
+    visited.push(position);
+  } else {
+    // we've been here! dont move and keep current red
+    current.style.backgroundColor = 'red';
+    position = oldPosition;
+  };
 
-  current = allFields[position];
-  current.style.backgroundColor = 'red';
   return current;
 };
