@@ -58,9 +58,15 @@ function changeCurrentActiveField(current, key) {
     break;
   };
 
+  // if (position == 199 && oldPosition != position) {
+  //   setTimeout(
+  //     function() { alert("\u004B\u006F\u007A\u00ED\u0020\u0038\u002C\u0020\u0044\u006F\u006F\u0072\u0062\u0065\u006C\u006C\u0020\u0034\u0030\u0038"); }, 100
+  //   );
+  // }
+
   if (position == 199 && oldPosition != position) {
     setTimeout(
-      function() { alert("\u004B\u006F\u007A\u00ED\u0020\u0038\u002C\u0020\u0044\u006F\u006F\u0072\u0062\u0065\u006C\u006C\u0020\u0034\u0030\u0038"); }, 100
+      function() { alert("Yay! You've done it!"); }, 100
     );
   }
 
