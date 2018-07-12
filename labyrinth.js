@@ -66,7 +66,7 @@ function changeCurrentActiveField(current, key) {
 
   if (position == 199 && oldPosition != position) {
     setTimeout(
-      function() { alert("Yay! You've done it!"); }, 100
+      function() { alert("Yay! You did it!"); }, 100
     );
   }
 
